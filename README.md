@@ -1,9 +1,13 @@
+MPC_Test.m,Copy_of_MPC_Matrics.m,Copy_of_Prediction.m 参考[DR_CAN](https://www.bilibili.com/read/cv16891782)
+
+MPC_demo.mlx 以一个二阶系统为例演示MPC，并对DR_CAN的代码进行拓展，适用于标准状态空间方程。
+
 <center>MPC模型预测控制</center>
 =
 
 [toc]
 
-# [MATLAB中国【Model Predictive Control】](https://space.bilibili.com/1768836923/search/video?keyword=mpc)
+# [资料1. MATLAB中国【Model Predictive Control】](https://space.bilibili.com/1768836923/search/video?keyword=mpc)
 
 ## 1. 特点
 
@@ -18,11 +22,9 @@
 
 ### 1.2. 缺点
 
-要求强大的计算力，因为在每一个时间步都需要求解优化问题。、
+要求强大的计算力，因为在每一个时间步都需要求解优化问题。
 
 ## 2. 参数设置
-
-[参考视频](https://www.bilibili.com/video/BV1b44y1v7Xt/?spm_id_from=333.788.recommend_more_video.-1&vd_source=be5bd51fafff7d21180e251563899e5e)
 
 采样时间：设置为开环系统响应上升时间Tr的1/20~1/10
 $$\frac{Tr}{20} \leqslant Ts \leqslant \frac{Tr}{10}$$
@@ -31,11 +33,13 @@ $$\frac{Tr}{20} \leqslant Ts \leqslant \frac{Tr}{10}$$
 约束条件：约束分为硬约束和软约束，硬约束不可违背，软约束可以违背。不建议对输入和输出都进行硬约束，因为两者可能冲突以致无法求解优化问题。建议将输出设为软约束，并避免对输入和输入变化率都有硬约束
 权重：取决于实际情况
 
+[参考视频](https://www.bilibili.com/video/BV1b44y1v7Xt/?spm_id_from=333.788.recommend_more_video.-1&vd_source=be5bd51fafff7d21180e251563899e5e)
+
 ## 3. 自适应MPC，增益调度MPC，非线性MPC
 
-[参考视频](https://www.bilibili.com/video/BV1ZL411g7Ya/?spm_id_from=333.788.recommend_more_video.-1&vd_source=be5bd51fafff7d21180e251563899e5e)
-
 适用于处理非线性系统，其中自适应MPC和增益调度MPC的本质是将系统线性化
+
+[参考视频](https://www.bilibili.com/video/BV1ZL411g7Ya/?spm_id_from=333.788.recommend_more_video.-1&vd_source=be5bd51fafff7d21180e251563899e5e)
 
 ### 3.1. 自适应MPC(Adaptive MPC)
 
@@ -58,8 +62,6 @@ $$\frac{Tr}{20} \leqslant Ts \leqslant \frac{Tr}{10}$$
 
 ## 4. 加快MPC运行速度的方法
 
-[参考视频](https://www.bilibili.com/video/BV1Ar4y1y7Tp/?spm_id_from=333.788.recommend_more_video.-1&vd_source=be5bd51fafff7d21180e251563899e5e)
-
 1. 模型降阶(Model Order Reduction)
 2. 舍弃对系统动力学没有贡献的状态量
 3. 缩短预测区间和控制区间
@@ -68,9 +70,15 @@ $$\frac{Tr}{20} \leqslant Ts \leqslant \frac{Tr}{10}$$
 6. 使用显式MPC(Explicit MPC):通过离线预计算最优解，来大大减少运行时间
 7. 使用次优解
 
+[参考视频](https://www.bilibili.com/video/BV1Ar4y1y7Tp/?spm_id_from=333.788.recommend_more_video.-1&vd_source=be5bd51fafff7d21180e251563899e5e)
+
 ## 5. 示例
+
+使用自动驾驶汽车示例来演示控制器的设计。
 
 [参考视频1](https://www.bilibili.com/video/BV1xP4y1s7pJ?spm_id_from=333.999.0.0&vd_source=be5bd51fafff7d21180e251563899e5e)
 [参考视频2](https://www.bilibili.com/video/BV1Wr4y1k76z?spm_id_from=333.999.0.0)
 
-使用自动驾驶汽车示例来演示控制器的设计。
+
+# [资料2. 无人驾驶车辆模型预测控制 (龚建伟)](https://www.bilibili.com/video/BV1HQ4y1P7bJ?p=1&vd_source=be5bd51fafff7d21180e251563899e5e)
+
