@@ -1,13 +1,18 @@
-MPC_Test.m,Copy_of_MPC_Matrics.m,Copy_of_Prediction.m 参考[DR_CAN](https://www.bilibili.com/read/cv16891782)
-
-MPC_demo.mlx 以一个二阶系统为例演示MPC，并对DR_CAN的代码进行拓展，适用于标准状态空间方程。
-
 <center>MPC模型预测控制</center>
 =
 
 [toc]
 
-# [资料1. MATLAB中国【Model Predictive Control】](https://space.bilibili.com/1768836923/search/video?keyword=mpc)
+# [资料1. DR_CAN：MPC模型预测控制器](https://www.bilibili.com/read/cv16891782)
+
+
+MPC_Test.m,Copy_of_MPC_Matrics.m,Copy_of_Prediction.m是DR_CAN提供的示例代码，例子中的参考信号R=0，且输出方程y=x,即矩阵C为单位阵。([代码地址](https://www.bilibili.com/read/cv16891782))
+
+MPC_demo.mlx 以一个二阶系统为例演示MPC，对DR_CAN的代码进行了拓展，参考信号可设，输出方程中的c可设。
+
+在控制的教材中，常常考虑参考信号为0的简化情况。在参考信号不为0的情况下，可以通过引入误差$e=z-z_{d}$，将误差作为新的状态量，可以将问题重新转换为参考信号=0的情况(参考误差信号为0)，这在 资料3.无人驾驶车辆模型预测控制 的推导笔记中有所涉及，引入了误差，同时通过误差实现了非线性系统的线性化。
+
+# [资料2. MATLAB中国【Model Predictive Control】](https://space.bilibili.com/1768836923/search/video?keyword=mpc)
 
 ## 1. 特点
 
@@ -80,5 +85,5 @@ $$\frac{Tr}{20} \leqslant Ts \leqslant \frac{Tr}{10}$$
 [参考视频2](https://www.bilibili.com/video/BV1Wr4y1k76z?spm_id_from=333.999.0.0)
 
 
-# [资料2. 无人驾驶车辆模型预测控制 (龚建伟)](https://www.bilibili.com/video/BV1HQ4y1P7bJ?p=1&vd_source=be5bd51fafff7d21180e251563899e5e)
+# [资料3. 无人驾驶车辆模型预测控制 (龚建伟)](https://www.bilibili.com/video/BV1HQ4y1P7bJ?p=1&vd_source=be5bd51fafff7d21180e251563899e5e)
 
