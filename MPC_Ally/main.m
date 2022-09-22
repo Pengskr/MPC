@@ -19,16 +19,24 @@ refPos_y = refPos(:,2);
 diff_x = diff(refPos_x) ;
 diff_x(end+1) = diff_x(end);
 diff_y = diff(refPos_y);
-diff_y(end+1) = diff_y(end);
+diff_y(end+1) = diff_y(end);                           % 最后一点的航向角同倒数第二个点
 refHeading = atan2(diff_y , diff_x);                   % 航向角
 derivative1 = gradient(refPos_y) ./ abs(diff_x);       % 一阶导数
-derivative2 = del2(refPos_y) ./ abs(diff_x);           % 二阶导数
+derivative2 = 4*del2(refPos_y) ./ (abs(diff_x).^2);    % 二阶导数
 refK = abs(derivative2) ./ (1+derivative1.^2).^(3/2);  % 计算曲率
 
 % 根据阿克曼转向原理，计算参考前轮转角
 refDelta = atan(L*refK);
 
 % 绘图
+figure
+plot(refHeading*180/pi);
+title("参考航向角(°)");
+
+figure
+plot(derivative1)
+title("路径曲线一阶导");
+
 figure
 plot(refPos_x,refPos_y,'r-')
 hold on
